@@ -213,13 +213,13 @@ This event will occur when the validation ends while there are some errors in th
 
 This event is fired when a particular field has no validation errors:
 
-    <input x-on:field-valid.dot="alert('failed')" x-rules="['required','min:5']" />
+    <input x-on:field-valid.dot="alert('valid')" x-rules="['required','min:5']" />
     
 #### `field.invalid`
 
 When a particular field has errors, you can handle the errors with this event:
 
-    <input x-on:field-invalid.dot="alert('failed')" x-rules="['required','min:5']" />
+    <input x-on:field-invalid.dot="alert('invalid')" x-rules="['required','min:5']" />
     
 ## Available Validation Rules:
 
