@@ -17,12 +17,10 @@ Alpine plugin to easily validate forms
 
 #### Via CDN
 
-    ```html
     <!-- Alpine Plugin x-validator -->
     <script  defer src="https://unpkg.com/@fernandcf/x-validator"></script>
     <!-- Alpine Core -->
     <script  defer  src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    ```
 
 
 #### Via NPM
@@ -37,7 +35,6 @@ Alpine plugin to easily validate forms
 
 HTML:
 
-    ```html
     <form x-validator>
 	    <input x-rules="['required','numeric','between:1,10']" />
     </form>
@@ -57,8 +54,7 @@ HTML:
 	}" x-validator>
 	    <input x-rules="name" />
     </form>
-    ```
-
+  
 ## Setup
 
 There are the following options:
@@ -68,7 +64,6 @@ There are the following options:
 
 #### Adding new rule
 
-    ```html
     <form x-validator="{
 	    rules:{
 		    exists({value:Array|String,args:Array,input:HTMLElement}){
@@ -84,11 +79,9 @@ There are the following options:
     }">
 	    <input type="text" x-rules="['exists']" />
     </form>
-    ```
 
 #### Adding new rule (Promise)
 
-    ```html
     <form x-validator="{
 	    rules:{
 		    exists({value:Array|String,args:Array,input:HTMLElement}){
@@ -105,7 +98,6 @@ There are the following options:
     }">
 	    <input type="text" x-rules="['exists']" />
     </form>
-    ```
 
 ## Reserved Keyword
 
@@ -119,7 +111,6 @@ By default, some keyword are reserved for Validator internal use
 
 To show start/server errors. You must do the following:
 
-    ```html
     <form x-data="{
 		 validator:{
 			error:{
@@ -131,7 +122,6 @@ To show start/server errors. You must do the following:
 		<!-- error message for field 'description' -->
 		<div x-text="validator.error.description"></div>
     </form>
-    ```
 
  This is useful if you are using a backend like Laravel and need to display error messages.
 
@@ -141,21 +131,18 @@ To get the error message for a specific field, you must use the `validator` keyw
 
 For example
 
-    ```html
     <form x-validator>
 		<input type="text" name="description" x-rules="['required']"/>
 		<!-- error message for field 'description' -->
 		<div x-text="validator.error.description"></div>
     </form>
-    ```
-
+    
 #### Get all error messages
 
 To get all error messages for a specific field, you must use the `validator` keyword inside `errors` and lastly the field name. `validator.errors.{field_name}`. It will return an object of error messages.
 
 For example
 
-    ```html
     <form x-validator>
 		<input type="text" name="description" x-rules="['required']"/>
 		<!-- error messages for field 'description' --> 
@@ -166,7 +153,7 @@ For example
 			</div>
 		</template>
     </form>
-    ```
+
 
 ## Methods
 
@@ -188,11 +175,9 @@ Set the language of the error messages.  Default 'en'.  Available languages:
 
 For example:
 
-    ```html
     <form x-validator x-init="validator.setLanguage('es')">
 		...	
 	</form>
-    ```
 
 ## Handling Events
 There are four types of events that can be handled with hooks:
@@ -204,9 +189,7 @@ There are four types of events that can be handled with hooks:
 
 For example in Alpinejs:
 
-    ```html
     <input x-on:field-invalid.dot="console.log($event.detail.errors)" x-rules="['required','min:5']" />
-    ```
 
 Since dots within the event name are reserved by [Alpine](https://alpinejs.dev/directives/on#dot) you need to write them with dashes and add the `.dot` modifier.
 
@@ -214,45 +197,35 @@ Since dots within the event name are reserved by [Alpine](https://alpinejs.dev/d
 
 This event will occur when the validation ends with no errors:
 
-    ```html
     <form x-validator x-on:validator-success.dot="alert('success')">
 	    <input x-rules="['required','min:5']" />
     </form>
-    ```
 
 #### `validator.failed`
 
 This event will occur when the validation ends while there are some errors in the form:
 
-    ```html
     <form x-validator x-on:validator-failed.dot="alert('failed')">
 	    <input x-rules="['required','min:5']" />
     </form>
-    ```
 
 #### `field.valid`
 
 This event is fired when a particular field has no validation errors:
 
-    ```html
     <input x-on:field-valid.dot="alert('failed')" x-rules="['required','min:5']" />
-    ```
     
 #### `field.invalid`
 
 When a particular field has errors, you can handle the errors with this event:
 
-    ```html
     <input x-on:field-invalid.dot="alert('failed')" x-rules="['required','min:5']" />
-    ```
     
 ## Available Validation Rules:
 
 For example: 
 
-    ```html
     <input x-rules="['string','between:5,9']" />
-    ```
 
 #### optional 
 The field under validation can be empty:
