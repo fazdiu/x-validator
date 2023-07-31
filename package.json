@@ -1,0 +1,39 @@
+{
+  "name": "@fernandcf/x-validator",
+  "description": "Alpine plugin to easily validate forms",
+  "keywords": [
+    "javascript",
+    "typescript",
+    "html",
+    "validation",
+    "validator",
+    "form",
+    "form-validation"
+  ],
+  "author": "@fernandcf",
+  "contributors": [],
+  "private": false,
+  "version": "0.7.0",
+  "type": "module",
+  "main": "./dist/plugin.umd.cjs",
+  "module": "./dist/plugin.js",
+  "unpkg": "./dist/plugin.cjs",
+  "exports": {
+    ".": {
+      "import": "./dist/plugin.js",
+      "require": "./dist/plugin.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:plugin": "node build.config.js"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "alpinejs": "^3.12.3",
+    "v8n": "^1.5.1",
+    "validator": "^13.9.0"
+  }
+}

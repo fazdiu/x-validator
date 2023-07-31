@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div
+      x-data="{isLoading:false}"
+      x-validator="{
+        rules: {
+          exists(data) {
+            console.log('check if exists username and return promise',data);
+            isLoading=true;
+            return new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve(false);
+                      isLoading=false;
+                  }, 2000);
+              });
+          },  
+        },
+        messages: {
+          exists:'The username has already been taken.'
+        }
+    }"
+    >
+      <div x-show="isLoading">
+        We are validating your information. Wait a moment please
+      </div>
+      <h2>Validator Form</h2>
+      <div>
+        <pre><code x-text="JSON.stringify(validator.error,null,2)"></code></pre>
+      </div>
+
+      <div>
+        <pre><code x-text="JSON.stringify(validator.errors,null,2)"></code></pre>
+      </div>
+
+      <div>
+        <button x-on:click="validator.init()">validaor init</button>
+        <button x-on:click="validator.validate()">validate fields</button>
+        <button x-on:click="validator.setLanguage('es')">
+          set language es
+        </button>
+      </div>
+
+      <div>
+        <div>Username</div>
+        <input type="text" name="custom" x-rules="['exists:users']" />
+        <div x-text="validator.error.custom"></div>
+      </div>
+
+      <div>
+        <input
+          type="text"
+          name="name"
+          x-rules="['required','min:5']"
+          x-on:field-invalid.dot=""
+        />
+        <div x-text="validator.error.name"></div>
+      </div>
+
+      <div x-data="{rules:[],required_if:''}">
+        <div>
+          <input
+            type="checkbox"
+            x-on:change="$el.checked ? rules.push('required') : rules.pop()"
+          />
+          Required if checked
+        </div>
+        <div>
+          <input
+            type="text"
+            name="required_if"
+            x-model="required_if"
+            x-rules="rules"
+          />
+          <div x-text="validator.error.required_if"></div>
+        </div>
+        <div>
+          <button x-on:click="required_if='value from click'">
+            Set value model
+          </button>
+        </div>
+      </div>
+
+      <div x-data="{rulesGroup:['array','min:2']}">
+        <div>
+          <input type="checkbox" name="group" x-rules="rulesGroup" value="1" />
+        </div>
+        <div>
+          <input type="checkbox" name="group" x-rules="rulesGroup" value="2" />
+        </div>
+        <div>
+          <input type="checkbox" name="group" x-rules="rulesGroup" value="3" />
+        </div>
+        <div x-text="validator.error.group"></div>
+      </div>
+
+      <div>
+        <select name="selector" x-rules="['array','min:1']">
+          <option value="">Choose item</option>
+          <option value="1">One</option>
+          <option value="2">One</option>
+        </select>
+        <div x-text="validator.error.selector"></div>
+      </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
