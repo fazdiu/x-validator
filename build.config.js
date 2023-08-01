@@ -4,9 +4,9 @@ import { build } from "vite";
 const libraries = [
   {
     entry: "./builds/cdn.js",
-    name: "plugin",
-    fileName: "plugin",
-    formats: ["cjs"],
+    name:'cdn',
+    fileName: "cdn",
+    formats: ["iife"],
   },
   {
     entry: "./builds/module.js",
