@@ -1487,7 +1487,7 @@ class Br {
       messages: {}
     };
     this.options = Object.assign(i, r), this.el = t, this.Alpine = n, this.setLanguage("en"), this.messages = Object.assign(this.messages, this.options.messages), this.rules = { ...this.options.rules, ...kr }, this.options.mode === "change" && this.validateOnFieldChange();
-    const s = (u = this.Alpine.$data(t).validator) == null ? void 0 : u.error, a = typeof s == "object" && s !== null ? a : {};
+    const s = (u = this.Alpine.$data(t).validator) == null ? void 0 : u.error, a = typeof s == "object" && s !== null ? s : {};
     this.Alpine.$data(t).validator = {
       error: a,
       errors: {},

@@ -36,7 +36,7 @@ class Validator {
     // alpine validator data
     const error = this.Alpine.$data(el).validator?.error;
     const initialErrors =
-      typeof error === "object" && error !== null ? initialErrors : {};
+      typeof error === "object" && error !== null ? error : {};
 
     this.Alpine.$data(el).validator = {
       error: initialErrors,

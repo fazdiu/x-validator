@@ -13,11 +13,11 @@
   "author": "@fernandcf",
   "contributors": [],
   "private": false,
-  "version": "0.7.0",
+  "version": "0.7.4",
   "type": "module",
   "main": "./dist/plugin.umd.cjs",
   "module": "./dist/plugin.js",
-  "unpkg": "./dist/plugin.cjs",
+  "unpkg": "./dist/cdn.iife.js",
   "exports": {
     ".": {
       "import": "./dist/plugin.js",
