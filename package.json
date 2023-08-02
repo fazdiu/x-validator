@@ -12,8 +12,10 @@
   ],
   "author": "@fernandcf",
   "contributors": [],
+  "homepage": "https://github.com/fernandcf/x-validator",
+  "license": "MIT",
   "private": false,
-  "version": "0.7.4",
+  "version": "0.7.5",
   "type": "module",
   "main": "./dist/plugin.umd.cjs",
   "module": "./dist/plugin.js",
@@ -35,5 +37,8 @@
     "alpinejs": "^3.12.3",
     "v8n": "^1.5.1",
     "validator": "^13.9.0"
+  },
+  "bugs": {
+    "url": "https://github.com/fernandcf/x-validator/issues"
   }
 }
