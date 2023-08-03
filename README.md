@@ -44,7 +44,7 @@ HTML:
 		  name: ['required','numeric','between:1,10']
 		}
 	}" x-validator>
-	    <input x-rules="name" />
+	    <input x-rules="rules.name" />
     </form>
     <!-- OR -->
     <form x-data="{
@@ -52,7 +52,7 @@ HTML:
 		  name: 'required|numeric|between:1,10'
 		}
 	}" x-validator>
-	    <input x-rules="name" />
+	    <input x-rules="rules.name" />
     </form>
   
 ## Setup
