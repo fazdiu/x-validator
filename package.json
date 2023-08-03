@@ -15,7 +15,7 @@
   "homepage": "https://github.com/fernandcf/x-validator",
   "license": "MIT",
   "private": false,
-  "version": "0.7.5",
+  "version": "0.7.6",
   "type": "module",
   "main": "./dist/plugin.umd.cjs",
   "module": "./dist/plugin.js",
